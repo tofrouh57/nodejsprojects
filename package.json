@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "@canvas-fonts/arial": "^1.0.4",
+    "canvas": "^2.11.2",
+    "format-title": "^1.1.1",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
+    "jimp": "^0.22.10",
+    "request": "^2.88.2",
+    "ws": "^8.14.2"
+  }
+}
