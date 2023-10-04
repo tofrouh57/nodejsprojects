@@ -5,6 +5,9 @@ const images = ["img1.txt", "img2.txt", "img3.txt", "img4.txt"];
 var currentImage = 0;
 
 
+const files  = fs.readdirSync ("./converted")
+console.log(files);
+console.log(files.length);
 
 const server = http.createServer((req, res) => {
   if (req.method === 'GET' && req.url === '/image') {
@@ -15,19 +18,21 @@ const server = http.createServer((req, res) => {
 
 
 
-//    fs.readFile("./converted/"+images[currentImage]+".txt", (err, data) => {
-      fs.readFile("./converted/4.txt", (err, data) => {
+    fs.readFile("./converted/"+files[currentImage], (err, data) => {
+//      fs.readFile("./converted/4.txt", (err, data) => {
         if (err) {
+          console.log("cannot open file " +"./converted/"+files[currentImage] );
         // Handle any errors (e.g., file not found)
         res.statusCode = 500;
         res.end('Internal Server Error');
       } else {
+      
         // Send the binary data in the response body
         res.statusCode = 200;
         res.end(data);
 
         currentImage++;
-        if (currentImage > 10)
+        if (currentImage > files.length-1)
         currentImage = 0;
 
       }
