@@ -4,8 +4,8 @@ const fs = require('fs');
 var Jimp = require('jimp');
 
 
-const canvasWidth = 320;
-const canvasHeight = 240;
+const canvasWidth = 480;
+const canvasHeight = 320;
 
 // for lissing fints config: sudo apt install fontconfig
 

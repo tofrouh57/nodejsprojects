@@ -1,11 +1,11 @@
 const http = require('http');
 const fs = require('fs');
 const images = ["img1.txt", "img2.txt", "img3.txt", "img4.txt"];
-
+const dirPath = "./converted888";
 var currentImage = 0;
 
 
-const files  = fs.readdirSync ("./converted")
+const files  = fs.readdirSync (dirPath);
 console.log(files);
 console.log(files.length);
 
@@ -18,10 +18,10 @@ const server = http.createServer((req, res) => {
 
 
 
-    fs.readFile("./converted/"+files[currentImage], (err, data) => {
-//      fs.readFile("./converted/4.txt", (err, data) => {
+   fs.readFile(dirPath+"/"+files[currentImage], (err, data) => {
+      // fs.readFile("./converted888/1.txt", (err, data) => {
         if (err) {
-          console.log("cannot open file " +"./converted/"+files[currentImage] );
+          console.log("cannot open file " +dirPath+"/"+files[currentImage] );
         // Handle any errors (e.g., file not found)
         res.statusCode = 500;
         res.end('Internal Server Error');
